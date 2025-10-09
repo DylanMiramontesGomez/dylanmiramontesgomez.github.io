@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos Naturistas EnerGreen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Banner de promoción -->
+  <div class="bg-green-600 text-white text-center py-2 text-lg font-semibold shadow-md">
+    🌿 ¡Promoción! Envíos gratis y 10% de descuento en todos los productos 🌿
+  </div>
+
+  <!-- Menú de navegación -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-700">RENACER NATURAL</h1>
+      <ul class="flex space-x-6 text-gray-700 font-medium">
+        <li><a href="#inicio" class="hover:text-green-600">Inicio</a></li>
+        <li><a href="#productos" class="hover:text-green-600">Productos</a></li>
+        <li><a href="#contacto" class="hover:text-green-600">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Buscador de productos -->
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <input 
+      type="text" 
+      id="buscador" 
+      placeholder="Busca tu producto..." 
+      class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+    >
+  </div>
+
+  <!-- Encabezado -->
+  <header id="inicio" class="text-center py-10">
+    <h2 class="text-4xl font-extrabold text-green-700">Productos Naturistas </h2>
+    <p class="text-gray-600 mt-2 text-lg">¡Bienestar natural, energía y salud para tu día a día!</p>
+  </header>
+
+  <!-- Sección de productos -->
+  <section id="productos" class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+
+    <!-- Producto 1 -->
+    <div class="producto bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition p-5 text-center">
+      <img src="imgparaproduccion/GOLDULTRA.png" alt="Producto 1" class="w-full h-auto max-h-72 object-contain rounded-lg mb-4">
+      <h3 class="text-xl font-semibold mb-1">ULTRA ADVANC3 GOLD CON 30 CAPSULAS</h3>
+      <ul class="text-sm text-gray-700 text-left mb-2">
+        <li>✔ Aumenta energía y concentración</li>
+        <li>✔ Mejora el rendimiento físico</li>
+        <li>✔ Ingredientes 100% naturales</li>
+      </ul>
+      <p class="text-green-600 font-bold text-lg mb-2">$180 MXN</p>
+      <img src="imgparaproduccion/fichaGOLDULTRA.png" alt="Ficha técnica" class="mx-auto rounded-lg mb-3">
+      <p class="text-sm text-gray-500">Limpia y renueva tu organismo de forma 100% natural.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition p-5 text-center">
+      <img src="imgparaproduccion/ashwagandha.png" alt="Producto 2" class="w-full h-auto max-h-72 object-contain rounded-lg mb-4">
+      <h3 class="text-xl font-semibold mb-1">ASHWAGANDHA CON 60 CAPSULAS</h3>
+      <ul class="text-sm text-gray-700 text-left mb-2">
+        <li>✔ Reduce estrés y ansiedad</li>
+        <li>✔ Mejora calidad del sueño</li>
+        <li>✔ Fortalece sistema inmunológico</li>
+      </ul>
+      <p class="text-green-600 font-bold text-lg mb-2">$220 MXN</p>
+      <img src="imgparaproduccion/FICHAASHWAGANDHA.png" alt="Ficha técnica" class="mx-auto rounded-lg mb-3">
+      <p class="text-sm text-gray-500">Relaja cuerpo y mente con nuestro suplemento natural.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition p-5 text-center">
+      <img src="imgparaproduccion/bypassdorado.png" alt="Producto 3" class="w-full h-auto max-h-72 object-contain rounded-lg mb-4">
+      <h3 class="text-xl font-semibold mb-1">BPASS DORADO CON 30 CAPSULAS</h3>
+      <ul class="text-sm text-gray-700 text-left mb-2">
+        <li>✔ Mejora metabolismo</li>
+        <li>✔ Aumenta energía diaria</li>
+        <li>✔ Ingredientes naturales de alta calidad</li>
+      </ul>
+      <p class="text-green-600 font-bold text-lg mb-2">$250 MXN</p>
+      <img src="https://via.placeholder.com/150x150.png?text=Ficha+Técnica" alt="Ficha técnica" class="mx-auto rounded-lg mb-3">
+      <p class="text-sm text-gray-500">Mejora tu energía y rendimiento diario con ingredientes naturales.</p>
+    </div>
+
+  </section>
+
+  <!-- Botón de WhatsApp -->
+  <div id="contacto" class="text-center my-12">
+    <a href="https://wa.me/528117875917" target="_blank"
+       class="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-full text-xl font-semibold shadow-lg transition">
+       💬 Contáctanos por WhatsApp
+    </a>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="bg-green-700 text-white text-center py-6">
+    <p class="text-sm">© 2025 EnerGreen | Todos los derechos reservados</p>
+    <p class="text-xs mt-1">Sitio desarrollado por Dylan</p>
+  </footer>
+
+  <!-- Script del buscador -->
+  <script>
+    const buscador = document.getElementById('buscador');
+    const productos = document.querySelectorAll('.producto');
+
+    buscador.addEventListener('input', () => {
+      const filtro = buscador.value.toLowerCase();
+
+      productos.forEach(producto => {
+        const texto = producto.textContent.toLowerCase();
+        producto.style.display = texto.includes(filtro) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
