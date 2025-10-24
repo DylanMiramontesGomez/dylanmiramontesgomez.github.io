@@ -110,20 +110,106 @@
     <p class="text-xs mt-1">Sitio desarrollado por Dylan</p>
   </footer>
 
-  <!-- Script del buscador -->
+        <!-- Script del buscador + visor de imágenes mejorado -->
   <script>
     const buscador = document.getElementById('buscador');
     const productos = document.querySelectorAll('.producto');
 
+    // --- FILTRO DE PRODUCTOS ---
     buscador.addEventListener('input', () => {
       const filtro = buscador.value.toLowerCase();
-
       productos.forEach(producto => {
         const texto = producto.textContent.toLowerCase();
         producto.style.display = texto.includes(filtro) ? 'block' : 'none';
       });
     });
+
+    // --- VISOR DE IMÁGENES ---
+    const imagenes = document.querySelectorAll('#productos img');
+
+    // Crear modal contenedor
+    const modal = document.createElement('div');
+    modal.id = 'modalImagen';
+    modal.className =
+      'hidden fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 p-4 overflow-auto';
+
+    modal.innerHTML = `
+      <div class="relative bg-transparent flex flex-col items-center justify-center">
+        <img id="imagenAmpliada" 
+             src="" 
+             alt="Vista ampliada"
+             class="rounded-xl object-contain max-w-[90vw] max-h-[75vh] border-4 border-white shadow-2xl transition-transform duration-300 ease-in-out mb-6">
+        <div class="flex space-x-3 fixed bottom-8 sm:static sm:bottom-auto">
+          <button id="descargarBtn" 
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-semibold shadow-md">
+            Descargar PNG
+          </button>
+          <button id="cerrarModal" 
+                  class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-semibold shadow-md">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const imagenAmpliada = modal.querySelector('#imagenAmpliada');
+    const cerrarModal = modal.querySelector('#cerrarModal');
+    const descargarBtn = modal.querySelector('#descargarBtn');
+
+    // Mostrar modal
+    imagenes.forEach(img => {
+      img.addEventListener('click', () => {
+        imagenAmpliada.src = img.src;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // evita scroll detrás del modal
+      });
+    });
+
+    // Cerrar con botón
+    cerrarModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Cerrar clic fuera
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Descargar imagen
+    descargarBtn.addEventListener('click', async () => {
+      try {
+        const response = await fetch(imagenAmpliada.src);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'producto.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      } catch (error) {
+        alert('Error al descargar la imagen');
+      }
+    });
   </script>
+
+  <!-- Animación suave -->
+  <style>
+    @keyframes fadeInZoom {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #imagenAmpliada {
+      animation: fadeInZoom 0.3s ease-in-out;
+    }
+  </style>
 
 </body>
 </html>
+
